@@ -4,7 +4,7 @@
   "description": "Simple API backend for CTP lecture.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon -L app.js"
   },
   "author": "Edgardo Molina",
   "license": "ISC",
@@ -16,3 +16,4 @@
     "nodemon": "^1.11.0"
   }
 }
+
