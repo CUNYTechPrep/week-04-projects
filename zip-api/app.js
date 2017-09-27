@@ -10,17 +10,17 @@ const PORT = process.env.PORT || 8000;
 
 
 app.get('/', (req, res) => {
-  res.json({test: 'Yay'});
+  res.json(Hello World);
 });
 
 
 app.get('/zip/:zipcode', (req, res) => {
-  // fill in...
+  res.json(zipdb.byZip[req.params.zipcode])
 });
 
 
 app.get('/city/:cityname', (req, res) => {
-  // fill in...
+  res.json(zipdb.byCity[req.params.cityname])
 });
 
 
