@@ -10,12 +10,12 @@ const byCity = {};
 
 records.forEach((rec) => {
   if(byZip[rec.Zipcode] === undefined) {
-    byZip[rec.Zipcode] = [];
+      byZip[rec.Zipcode] = [];
   }
   byZip[rec.Zipcode].push(rec);
 
   if(byCity[rec.City] === undefined) {
-    byCity[rec.City] = [];
+      byCity[rec.City] = [];
   }
   byCity[rec.City].push(rec.Zipcode);
 });
