@@ -5,8 +5,8 @@ const data = fs.readFileSync('./data/free-zipcode-database.csv');
 const records = parse(data, { columns: true });
 
 
-const byZip = {};
-const byCity = {};
+const byZip = {}; // uses zipcode as a key
+const byCity = {}; 
 
 records.forEach((rec) => {
   if(byZip[rec.Zipcode] === undefined) {
