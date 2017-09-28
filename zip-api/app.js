@@ -15,7 +15,8 @@ app.get('/', (req, res) => {
 
 
 app.get('/zip/:zipcode', (req, res) => {
-  let zip = zipdb[req.params.zipcode];
+
+  let zip = zipdb.byZip[req.params.zipcode];
   if (zip) {
   	res.json(zip);
   } else {
@@ -25,7 +26,7 @@ app.get('/zip/:zipcode', (req, res) => {
 
 
 app.get('/city/:cityname', (req, res) => {
-  let city = zipdb[req.params.cityname];
+  let city = zipdb.byCity[req.params.cityname];
   if (city) {
   	res.json(city);
   } else {
