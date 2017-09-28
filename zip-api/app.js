@@ -16,11 +16,23 @@ app.get('/', (req, res) => {
 
 app.get('/zip/:zipcode', (req, res) => {
   // fill in...
+  const zipRecords = zipdb.byZip[req.params.zipcode];
+  if(zipRecords === undefined) {
+  	res.sendStatus(404);
+  } else {
+  	res.json(zipRecords);
+  }
 });
 
 
 app.get('/city/:cityname', (req, res) => {
   // fill in...
+  const cityRecords = zipdb.byCity[req.params.cityname];
+  if(cityRecords === undefined) {
+  	res.sendStatus(404);
+  } else {
+  	res.json(cityRecords);
+  }
 });
 
 
