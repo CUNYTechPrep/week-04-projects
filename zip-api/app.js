@@ -1,9 +1,10 @@
-const express = require('express');
-const app = express();
+const express = require('express'); // see in all express
+const app = express(); // see in all express
 
-const zipdb = require('./zipData');
+const zipdb = require('./zipData'); //importing a file that I created 
+const citydb = require('./zipData'); //importing a file that I created 
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000; //quick check
 
 
 // console.log(zipdb.byCity);
@@ -15,12 +16,22 @@ app.get('/', (req, res) => {
 
 
 app.get('/zip/:zipcode', (req, res) => {
-  // fill in...
+  const records = zipdb.byZip[req.params.zipcode]; 
+  if(records === undefined){
+  	res.sendStatus(404); // if not found send error
+  }else{
+  	res.json(records); //if found send records as json
+  }
 });
 
 
 app.get('/city/:cityname', (req, res) => {
-  // fill in...
+    const records = citydb.byCity[req.params.cityname]; 
+  if(records === undefined){
+  	res.sendStatus(404); // if not found send error
+  }else{
+  	res.json(records); //if found send records as json
+  }
 });
 
 
