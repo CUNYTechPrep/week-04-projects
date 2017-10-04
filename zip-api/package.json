@@ -4,7 +4,7 @@
   "description": "Simple API backend for CTP lecture.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon -L app.js"  //package watch the file in project, when the file changed it will reloaded automatically
   },
   "author": "Edgardo Molina",
   "license": "ISC",
