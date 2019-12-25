@@ -16,11 +16,16 @@ app.get('/', (req, res) => {
 
 app.get('/zip/:zipcode', (req, res) => {
   // fill in...
+  const records = zipdb.byZip[req.params.zipcode];
+  res.json(records);
+  //res.send('Hello CTP STUDENTS!!!');
 });
 
 
 app.get('/city/:cityname', (req, res) => {
   // fill in...
+  const records =zipdb.byCity[req.params.cityname];
+  res.json(records);
 });
 
 
