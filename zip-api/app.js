@@ -6,7 +6,7 @@ const zipdb = require('./zipData');
 const PORT = process.env.PORT || 8000;
 
 
-// console.log(zipdb.byCity);
+//console.log(zipdb.byZip);
 
 
 app.get('/', (req, res) => {
@@ -15,12 +15,20 @@ app.get('/', (req, res) => {
 
 
 app.get('/zip/:zipcode', (req, res) => {
-  // fill in...
+  const records = zipdb.byZip[req.params.zipcode];
+  if (records === undefined)
+    res.sendStatus(404);
+  else
+    res.json(records);
 });
 
 
 app.get('/city/:cityname', (req, res) => {
-  // fill in...
+  const records = zipdb.byCity[req.params.cityname.toUpperCase()];
+  if (records === undefined)
+    res.sendStatus(404);
+  else
+    res.json(records);
 });
 
 
